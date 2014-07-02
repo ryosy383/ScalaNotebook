@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CodeIQ「ScalaでXML解析」コード実行ツール</title>
+	<title>CodeIQ「ScalaでXML解析」問題コード実行ツール</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="./codemirror-4.3/doc/docs.css">
 	<link rel="stylesheet" href="./codemirror-4.3/lib/codemirror.css">
@@ -16,8 +16,10 @@
 </head>
 <body>
 	<form action="compile.php" method="post">
-		<h2>CodeIQ「ScalaでXML解析」コード実行ツール</h2>
-		ソースを記述して「コードを実行する」ボタンを押すと、出力結果が下のテキストエリアに表示されます。
+		<h2>CodeIQ「ScalaでXML解析」問題コード実行ツール</h2>
+		ソースコードを記述して「コードを実行する」ボタンを押すと、出力結果が下の方のテキストエリアに表示されます。<br />
+		<br />
+		ソースコード記述欄:
 		<textarea id="code" name="code"><?php if ( isset($code) ) { echo $code; } ?></textarea>
 		<script>
 			var editor = CodeMirror.fromTextArea(document.getElementById("code"), {

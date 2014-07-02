@@ -17,7 +17,7 @@
 <body>
 	<form action="compile.php" method="post">
 		<h2>CodeIQ「ScalaでXML解析」問題コード実行ツール</h2>
-		ソースコードを記述して「コードを実行する」ボタンを押すと、出力結果が下の方のテキストエリアに表示されます。<br />
+		ソースコードを記述して「コードを実行」ボタンを押すと、出力結果が下の方のテキストエリアに表示されます。<br />
 		<br />
 		ソースコード記述欄:
 		<textarea id="code" name="code"><?php if ( isset($code) ) { echo $code; } ?></textarea>

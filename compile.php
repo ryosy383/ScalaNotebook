@@ -16,6 +16,6 @@
 	
 	$result =  file_get_contents('out.txt');
 	
-	require 'index.php';
+	echo $result;
 ?>
 

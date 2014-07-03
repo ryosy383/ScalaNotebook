@@ -15,12 +15,12 @@
 
 </head>
 <body>
-	<form action="compile.php" method="post">
+	<form id="compile">
 		<h2>CodeIQ「ScalaでXML解析」問題コード実行ツール</h2>
 		ソースコードを記述して「コードを実行」ボタンを押すと、出力結果が下の方のテキストエリアに表示されます。<br />
 		<br />
 		ソースコード記述欄:
-		<textarea id="code" name="code"><?php if ( isset($code) ) { echo $code; } ?></textarea>
+		<textarea id="code" name="code"></textarea>
 		<script>
 			var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			  mode: "application/javascript",
@@ -35,6 +35,25 @@
 	</form>
 
 	出力結果:
-	<textarea id="result" style="height:200px; width:100%; border-top: 2px solid black; border-bottom: 2px solid black" readonly><?php if ( isset($result) ) { echo $result; } ?></textarea>
+	<textarea id="result" style="height:200px; width:100%; border-top: 2px solid black; border-bottom: 2px solid black" readonly></textarea>
+<script><!--
+(function($){
+	$(document).ready(function(){
+		console.log($('#compile').on('submit',function(e){
+			$('#result').text('実行中…');
+
+			$.ajax({
+				type: 'post',
+				url: './compile.php',
+				data: {code:editor.getValue()},
+				success: function(data){
+					$('#result').text(data);
+				}
+			});
+			return false;
+		}));
+	});
+})(jQuery);
+//--></script>
 </body>
 </html>

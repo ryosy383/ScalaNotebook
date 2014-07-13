@@ -36,24 +36,24 @@
 
 	出力結果:
 	<textarea id="result" style="height:200px; width:100%; border-top: 2px solid black; border-bottom: 2px solid black" readonly></textarea>
-<script><!--
-(function($){
-	$(document).ready(function(){
-		console.log($('#compile').on('submit',function(e){
-			$('#result').text('実行中…');
+	<script>
+		(function($) {
+			$(document).ready(function() {
+				console.log($('#compile').on('submit',function(e) {
+					$('#result').text('実行中…');
 
-			$.ajax({
-				type: 'post',
-				url: './compile.php',
-				data: {code:editor.getValue()},
-				success: function(data){
-					$('#result').text(data);
-				}
+					$.ajax({
+						type: 'post',
+						url: './compile.php',
+						data: {code:editor.getValue()},
+						success: function(data) {
+							$('#result').text(data);
+						}
+					});
+					return false;
+				}));
 			});
-			return false;
-		}));
-	});
-})(jQuery);
-//--></script>
+		})(jQuery);
+	</script>
 </body>
 </html>
